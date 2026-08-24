@@ -109,12 +109,15 @@ export function isObject (item) {
   return (item && typeof item === 'object' && !Array.isArray(item))
 }
 
+const FORBIDDEN_KEYS = ['__proto__', 'constructor', 'prototype']
+
 export function mergeDeep (target, ...sources) {
   if (!sources.length) return target
   const source = sources.shift()
 
   if (isObject(target) && isObject(source)) {
     for (const key in source) {
+      if (FORBIDDEN_KEYS.includes(key)) continue
       if (isObject(source[key])) {
         if (!target[key]) Object.assign(target, { [key]: {} })
         mergeDeep(target[key], source[key])
@@ -129,6 +132,7 @@ export function mergeDeep (target, ...sources) {
 
 export function overwriteExistingProperties (obj1, obj2) {
   Object.keys(obj2).forEach(function (key) {
+    if (FORBIDDEN_KEYS.includes(key)) return
     if (key in obj1) {
       obj1[key] = obj2[key]
     }

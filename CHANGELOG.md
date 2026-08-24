@@ -1,5 +1,6 @@
 ### Unreleased
 
+- Security fix: `mergeDeep` and `overwriteExistingProperties` in `src/utilities.js` no longer allow `__proto__`/`constructor`/`prototype` keys from a schema to pollute `Object.prototype` (reachable via `if`/`then`/`else` schema handling)
 - Fixed #1636. multiselect obstructed editor format "table"
 - Fixed #1559 and #1621 field dependent on false should now display
 - Fixed #1612, adding `for` attributes to labels in the Tailwind theme
