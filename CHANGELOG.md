@@ -6,7 +6,6 @@
 - Fixed #1612, adding `for` attributes to labels in the Tailwind theme
 - Fixed #1698, using Tailwind classes to hide elements
 
-
 ### 2.15.2
 
 - Support drag and drop for array item
