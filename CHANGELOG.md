@@ -1,4 +1,4 @@
-### Unreleased
+### 2.17.2
 
 - Security fix: `mergeDeep` and `overwriteExistingProperties` in `src/utilities.js` no longer allow `__proto__`/`constructor`/`prototype` keys from a schema to pollute `Object.prototype` (reachable via `if`/`then`/`else` schema handling)
 - Fixed #1636. multiselect obstructed editor format "table"
